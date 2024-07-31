@@ -1,14 +1,18 @@
-package com.chatapp.user;
+package com.chatapp.message;
 
-import com.chatapp.message.Message;
 import org.springframework.stereotype.Service;
 
-import java.time.Instant;
-import java.util.UUID;
+import java.util.List;
 
 @Service
 public class MessageService {
-    public Message getMessage() {
-        return new Message(UUID.randomUUID(), UUID.randomUUID(), "dummy message", Instant.now());
+    private final MessageRepository messageRepository;
+
+    public MessageService(MessageRepository messageRepository) {
+        this.messageRepository = messageRepository;
+    }
+
+    public List<Message> getMessages() {
+        return messageRepository.findAll();
     }
 }
