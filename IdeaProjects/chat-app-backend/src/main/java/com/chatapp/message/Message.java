@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.time.Instant;
 import java.util.UUID;
@@ -17,14 +18,10 @@ import java.util.UUID;
 @Table(name = "\"message\"")
 public class Message {
     @Id
-    @SequenceGenerator(
-            name = "message_sequence",
-            sequenceName = "message_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "message_sequence"
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator"
     )
     private UUID id;
     private UUID sender_id;
