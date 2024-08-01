@@ -18,7 +18,7 @@ public class MessageController {
     private final MessageService messageService;
 
     @GetMapping
-    public List<Message> getMessage() {
+    public List<Message> getMessages() {
         return messageService.getMessages();
     }
 
