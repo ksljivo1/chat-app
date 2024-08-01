@@ -1,5 +1,6 @@
-package com.chatapp.user;
+package com.chatapp.domain.userservice.db;
 
+import com.chatapp.domain.userservice.dto.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

@@ -1,29 +1,36 @@
-package com.chatapp.user;
+package com.chatapp.domain.userservice.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.chatapp.domain.userservice.db.UserRepository;
+import com.chatapp.domain.userservice.dto.User;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
-public class UserService {
+@AllArgsConstructor
+public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
-    @Autowired
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
+    @Override
     public List<User> getUsers() {
         return userRepository.findAll();
     }
 
+    @Override
     public void addNewUser(User user) {
         Optional<User> userOptional = userRepository.findByEmail(user.getEmail());
         if (userOptional.isPresent()) {
             throw new IllegalStateException("Email already in use");
         }
         userRepository.save(user);
+    }
+
+    @Override
+    public User getUser(UUID id) {
+        Optional<User> user = userRepository.findById(id);
+        return user.orElse(null);
     }
 }

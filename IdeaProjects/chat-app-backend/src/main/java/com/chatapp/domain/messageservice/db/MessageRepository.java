@@ -1,5 +1,6 @@
-package com.chatapp.message;
+package com.chatapp.domain.messageservice.db;
 
+import com.chatapp.domain.messageservice.dto.Message;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

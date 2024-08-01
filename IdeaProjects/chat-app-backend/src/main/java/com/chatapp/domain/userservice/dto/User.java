@@ -1,6 +1,6 @@
-package com.chatapp.user;
+package com.chatapp.domain.userservice.dto;
 
-import com.chatapp.message.Message;
+import com.chatapp.domain.messageservice.dto.Message;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

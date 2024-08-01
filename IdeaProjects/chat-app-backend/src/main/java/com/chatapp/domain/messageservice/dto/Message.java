@@ -1,4 +1,4 @@
-package com.chatapp.message;
+package com.chatapp.domain.messageservice.dto;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
