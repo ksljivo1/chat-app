@@ -1,4 +1,4 @@
-package com.chatapp.domain.userservice.config;
+package com.chatapp.config;
 
 import com.chatapp.domain.userservice.dto.User;
 import com.chatapp.domain.userservice.db.UserRepository;
