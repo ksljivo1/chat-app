@@ -33,4 +33,13 @@ public class UserServiceImpl implements UserService {
         Optional<User> user = userRepository.findById(id);
         return user.orElse(null);
     }
+
+    @Override
+    public User getUserByEmailAndPassword(String email, String password) {
+        Optional<User> user = userRepository.findByEmailAndPassword(email, password);
+        if(user.isEmpty()) {
+            throw new IllegalStateException("User not registered");
+        }
+        return user.get();
+    }
 }
